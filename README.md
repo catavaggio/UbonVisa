@@ -1,52 +1,57 @@
-# UbonVisa - Веб-сайт визитка
+# UbonVisa - Company Website
 
-Современный одностраничный веб-сайт-визитка для компании UbonVisa, предоставляющей визовые услуги.
+Modern single-page business card website for UbonVisa company providing visa services.
 
-## 🚀 Особенности
+## 🚀 Features
 
-- **Современный дизайн** - Красивый и профессиональный интерфейс
-- **Адаптивная верстка** - Отлично работает на всех устройствах (десктоп, планшет, мобильный)
-- **Плавная анимация** - Элегантные переходы и эффекты при прокрутке
-- **Интерактивные элементы** - Анимированные счетчики, форма обратной связи
-- **Оптимизированная производительность** - Быстрая загрузка и плавная работа
+- **Modern Design** - Beautiful and professional interface
+- **Responsive Layout** - Works perfectly on all devices (desktop, tablet, mobile)
+- **Smooth Animations** - Elegant transitions and scroll effects
+- **Interactive Elements** - Animated counters, contact form
+- **Optimized Performance** - Fast loading and smooth operation
 
-## 📁 Структура проекта
+## 📁 Project Structure
 
 ```
 C:\UbonVisaWebsite\
-├── index.html      # Главная HTML страница
-├── styles.css      # Стили и дизайн
-├── script.js       # JavaScript для интерактивности
-├── запустить_сайт.bat              # Батник для запуска
-├── запустить_сайт_с_браузером.bat  # Батник с автозапуском браузера
-├── README.md       # Документация
-└── ЗАПУСК.md      # Инструкция по запуску
+├── index.html      # Main HTML page
+├── styles.css      # Styles and design
+├── script.js       # JavaScript for interactivity
+├── README.md       # Documentation
+└── FORM_SETUP.md   # Form email setup instructions
 ```
 
-## 🎨 Секции сайта
+## 🎨 Website Sections
 
-1. **Главная (Hero)** - Приветственный экран с основным сообщением
-2. **Услуги** - Описание всех предоставляемых услуг
-3. **О нас** - Информация о компании и статистика
-4. **Почему выбирают нас** - Преимущества компании
-5. **Контакты** - Форма обратной связи и контактная информация
-6. **Футер** - Дополнительные ссылки и информация
+1. **Home (Hero)** - Welcome screen with main message
+2. **Services** - Description of all services offered
+3. **About** - Company information and statistics
+4. **Why Choose Us** - Company advantages
+5. **Contact** - Contact form and contact information
+6. **Footer** - Additional links and information
 
-## 🛠️ Использование
+## 📞 Contact Information
 
-### Быстрый запуск (Windows)
+- **Email:** ubonvisath@gmail.com
+- **Phone:** 0633416643
+- **Address:** [View on Google Maps](https://maps.app.goo.gl/5jW2RmvaSdVoAj6RA)
+- **Business Hours:** Monday - Sunday: 10:00 AM - 5:00 PM
 
-**Просто запустите один из батников:**
+## 🛠️ Usage
 
-1. **`запустить_сайт.bat`** - запустит сервер (браузер откроете вручную)
-2. **`запустить_сайт_с_браузером.bat`** - запустит сервер и автоматически откроет браузер
+### Quick Start (Windows)
 
-Батники автоматически найдут Python или PHP и запустят локальный сервер.
+**Simply run one of the batch files:**
 
-### Ручной запуск
+1. **`запустить_сайт.bat`** - starts server (open browser manually)
+2. **`запустить_сайт_с_браузером.bat`** - starts server and automatically opens browser
 
-1. Откройте файл `index.html` в любом современном браузере
-2. Или используйте локальный сервер:
+Batch files automatically find Python or PHP and start a local server.
+
+### Manual Start
+
+1. Open `index.html` in any modern browser
+2. Or use a local server:
 
 ```bash
 # Python 3
@@ -56,104 +61,87 @@ python -m http.server 8000
 php -S localhost:8000
 ```
 
-3. Откройте браузер и перейдите по адресу `http://localhost:8000`
+3. Open browser and go to `http://localhost:8000`
 
-📖 **Подробная инструкция:** См. файл `ЗАПУСК.md`
+### Deployment (Upload to Internet)
 
-### Развертывание (Загрузка в интернет)
+📖 **Detailed instructions:** See `DEPLOYMENT.md`
 
-📖 **Подробная инструкция:** См. файл `DEPLOYMENT.md`
+The website can be deployed on any hosting:
 
-Сайт можно развернуть на любом хостинге:
+- **GitHub Pages** (Free) - Just upload files to repository
+- **Netlify** (Free) - Drag and drop folder to Netlify
+- **Vercel** (Free) - Connect repository
+- **Firebase Hosting** (Free) - From Google
+- **Any web hosting** (Paid) - Upload files via FTP
 
-- **GitHub Pages** (Бесплатно) - Просто загрузите файлы в репозиторий
-- **Netlify** (Бесплатно) - Перетащите папку в Netlify
-- **Vercel** (Бесплатно) - Подключите репозиторий
-- **Firebase Hosting** (Бесплатно) - От Google
-- **Любой веб-хостинг** (Платно) - Загрузите файлы через FTP
+**Recommendation for beginners:** Use GitHub Pages - it's the simplest and free option.
 
-**Рекомендация для начинающих:** Используйте GitHub Pages - это самый простой и бесплатный способ.
+## 📧 Contact Form Setup
 
-## ✏️ Настройка
+The contact form is configured to send emails to **ubonvisath@gmail.com**.
 
-### Изменение контактной информации
+📖 **Setup instructions:** See `FORM_SETUP.md`
 
-Откройте `index.html` и найдите секцию контактов (около строки 200):
+### Quick Setup:
+
+1. Go to [formspree.io](https://formspree.io) and sign up
+2. Create a new form with email: **ubonvisath@gmail.com**
+3. Get your form endpoint URL
+4. Update the form action in `index.html` with your Formspree URL
+
+## ✏️ Customization
+
+### Changing Contact Information
+
+Open `index.html` and find the contact section (around line 200):
 
 ```html
 <div class="contact-item">
     <div class="contact-icon">📧</div>
     <div>
         <h3>Email</h3>
-        <p>info@ubonvisa.com</p>  <!-- Измените здесь -->
+        <p><a href="mailto:ubonvisath@gmail.com">ubonvisath@gmail.com</a></p>
     </div>
 </div>
 ```
 
-### Изменение цветовой схемы
+### Changing Color Scheme
 
-Откройте `styles.css` и найдите переменные в начале файла:
+Open `styles.css` and find variables at the beginning:
 
 ```css
 :root {
-    --primary-color: #2563eb;      /* Основной цвет */
-    --secondary-color: #10b981;    /* Вторичный цвет */
-    --accent-color: #f59e0b;       /* Акцентный цвет */
+    --primary-color: #2563eb;      /* Main color */
+    --secondary-color: #10b981;    /* Secondary color */
+    --accent-color: #f59e0b;       /* Accent color */
     /* ... */
 }
 ```
 
-### Настройка формы обратной связи
+## 📱 Responsiveness
 
-В файле `script.js` найдите обработчик формы (около строки 50). В настоящее время форма показывает уведомление. Для реальной отправки данных:
+The website is fully responsive and optimized for:
+- Desktops (1920px and above)
+- Tablets (768px - 1024px)
+- Mobile devices (up to 768px)
 
-1. Подключите серверный скрипт (PHP, Node.js, Python)
-2. Или используйте сервис типа Formspree, EmailJS
+## 🎯 Browser Support
 
-Пример с EmailJS:
+- Chrome (latest versions)
+- Firefox (latest versions)
+- Safari (latest versions)
+- Edge (latest versions)
 
-```javascript
-contactForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    
-    const formData = {
-        name: document.getElementById('name').value,
-        email: document.getElementById('email').value,
-        phone: document.getElementById('phone').value,
-        message: document.getElementById('message').value
-    };
-    
-    // Отправка через EmailJS или другой сервис
-    // await emailjs.send('service_id', 'template_id', formData);
-    
-    showNotification('Спасибо! Ваше сообщение отправлено.', 'success');
-    contactForm.reset();
-});
-```
+## 📝 License
 
-## 📱 Адаптивность
+This project is created for UbonVisa company. All rights reserved.
 
-Сайт полностью адаптивен и оптимизирован для:
-- Десктопов (1920px и выше)
-- Планшетов (768px - 1024px)
-- Мобильных устройств (до 768px)
+## 🤝 Support
 
-## 🎯 Браузерная поддержка
-
-- Chrome (последние версии)
-- Firefox (последние версии)
-- Safari (последние версии)
-- Edge (последние версии)
-
-## 📝 Лицензия
-
-Этот проект создан для компании UbonVisa. Все права защищены.
-
-## 🤝 Поддержка
-
-Если у вас возникли вопросы или нужна помощь с настройкой, свяжитесь с разработчиком.
+If you have questions or need help with setup, contact the developer.
 
 ---
 
-**UbonVisa** - Ваш надежный партнер в оформлении виз 🌍✈️
+**UbonVisa** - Your trusted partner in visa processing 🌍✈️
 

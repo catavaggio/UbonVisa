@@ -47,10 +47,10 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Form submission handler
+// Form submission handler with Formspree
 const contactForm = document.getElementById('contactForm');
 
-contactForm.addEventListener('submit', (e) => {
+contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     
     // Get form values
@@ -61,12 +61,47 @@ contactForm.addEventListener('submit', (e) => {
         message: document.getElementById('message').value
     };
     
-    // Here you would typically send the data to a server
-    // For now, we'll just show a success message
-    showNotification('Thank you! Your message has been sent. We will contact you soon.', 'success');
+    // Set reply-to field dynamically
+    const replyToInput = contactForm.querySelector('input[name="_replyto"]');
+    if (replyToInput) {
+        replyToInput.value = formData.email;
+    }
     
-    // Reset form
-    contactForm.reset();
+    // Show loading state
+    const submitButton = contactForm.querySelector('button[type="submit"]');
+    const originalButtonText = submitButton.textContent;
+    submitButton.textContent = 'Sending...';
+    submitButton.disabled = true;
+    
+    try {
+        // Submit form using Formspree
+        const response = await fetch(contactForm.action, {
+            method: 'POST',
+            body: new FormData(contactForm),
+            headers: {
+                'Accept': 'application/json'
+            }
+        });
+        
+        if (response.ok) {
+            showNotification('Thank you! Your message has been sent. We will contact you soon.', 'success');
+            contactForm.reset();
+        } else {
+            const data = await response.json();
+            if (data.errors) {
+                showNotification('There was an error sending your message. Please try again.', 'error');
+            } else {
+                showNotification('Thank you! Your message has been sent. We will contact you soon.', 'success');
+                contactForm.reset();
+            }
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        showNotification('There was an error sending your message. Please try again or contact us directly.', 'error');
+    } finally {
+        submitButton.textContent = originalButtonText;
+        submitButton.disabled = false;
+    }
 });
 
 // Notification function
@@ -95,6 +130,7 @@ function showNotification(message, type = 'success') {
         z-index: 10000;
         animation: slideIn 0.3s ease;
         max-width: 400px;
+        font-weight: 500;
     `;
     
     document.body.appendChild(notification);
