@@ -47,24 +47,35 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Form submission handler with Formspree
+// Form submission handler with Web3Forms
 const contactForm = document.getElementById('contactForm');
 
 contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     
-    // Get form values
-    const formData = {
-        name: document.getElementById('name').value,
-        email: document.getElementById('email').value,
-        phone: document.getElementById('phone').value,
-        message: document.getElementById('message').value
-    };
-    
-    // Set reply-to field dynamically
-    const replyToInput = contactForm.querySelector('input[name="_replyto"]');
-    if (replyToInput) {
-        replyToInput.value = formData.email;
+    // Check if access key is set
+    const accessKeyInput = contactForm.querySelector('input[name="access_key"]');
+    if (!accessKeyInput || accessKeyInput.value === 'YOUR_ACCESS_KEY_HERE') {
+        // Fallback to mailto if Web3Forms not configured
+        const formData = {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            phone: document.getElementById('phone').value,
+            message: document.getElementById('message').value
+        };
+        
+        const subject = encodeURIComponent('New Contact Form Submission from UbonVisa Website');
+        const body = encodeURIComponent(
+            `Name: ${formData.name}\n` +
+            `Email: ${formData.email}\n` +
+            `Phone: ${formData.phone}\n\n` +
+            `Message:\n${formData.message}`
+        );
+        
+        window.location.href = `mailto:ubonvisath@gmail.com?subject=${subject}&body=${body}`;
+        showNotification('Opening your email client... Please send the email manually.', 'success');
+        contactForm.reset();
+        return;
     }
     
     // Show loading state
@@ -74,30 +85,24 @@ contactForm.addEventListener('submit', async (e) => {
     submitButton.disabled = true;
     
     try {
-        // Submit form using Formspree
+        // Submit form using Web3Forms
+        const formData = new FormData(contactForm);
         const response = await fetch(contactForm.action, {
             method: 'POST',
-            body: new FormData(contactForm),
-            headers: {
-                'Accept': 'application/json'
-            }
+            body: formData
         });
         
-        if (response.ok) {
+        const result = await response.json();
+        
+        if (result.success) {
             showNotification('Thank you! Your message has been sent. We will contact you soon.', 'success');
             contactForm.reset();
         } else {
-            const data = await response.json();
-            if (data.errors) {
-                showNotification('There was an error sending your message. Please try again.', 'error');
-            } else {
-                showNotification('Thank you! Your message has been sent. We will contact you soon.', 'success');
-                contactForm.reset();
-            }
+            showNotification('There was an error sending your message. Please try again.', 'error');
         }
     } catch (error) {
         console.error('Error:', error);
-        showNotification('There was an error sending your message. Please try again or contact us directly.', 'error');
+        showNotification('There was an error sending your message. Please try again or contact us directly at ubonvisath@gmail.com', 'error');
     } finally {
         submitButton.textContent = originalButtonText;
         submitButton.disabled = false;
