@@ -1,7 +1,7 @@
 {
-  "versionCode": 5,
-  "versionName": "3.2.0",
-  "apkUrl": "https://raw.githubusercontent.com/catavaggio/UbonVisa/main/downloads/yt-subcopy/YTSubCopy-3.2.apk",
-  "sha256": "5feac331d4bf26c7f5beee852367dbd75e3c3bded734b99b07e02eea5e54ad71",
-  "notes": "YT SubCopy 3.2: исправления плавающей кнопки EN CC и автоматическое открытие ChatGPT после успешного копирования английских субтитров."
+  "versionCode": 6,
+  "versionName": "3.3.0",
+  "apkUrl": "https://raw.githubusercontent.com/catavaggio/UbonVisa/main/downloads/yt-subcopy/YTSubCopy-3.3.apk",
+  "sha256": "09ce1784a6959981a651bca59e6a53408027ac8bbefb4cbfaaaf9f8bca0a6ad3",
+  "notes": "YT SubCopy 3.3: исправлена проверка доступных обновлений, устранено кэширование версии и упрощена установка APK после разрешения Android. Сохранены EN CC и автоматический переход в ChatGPT после копирования."
 }
