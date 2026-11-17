@@ -1,7 +1,7 @@
 {
-  "versionCode": 3,
-  "versionName": "3.0.0",
-  "apkUrl": "https://raw.githubusercontent.com/catavaggio/UbonVisa/main/downloads/yt-subcopy/YTSubCopy-3.0.apk",
-  "sha256": "ed6350d360c0ab80b38bfb240ae9e063694023b53d63df3be4762dde87c3cc4b",
-  "notes": "Плавающая кнопка EN CC поверх YouTube, автоматическое копирование английских субтитров через меню Поделиться, обновления из приложения."
+  "versionCode": 5,
+  "versionName": "3.2.0",
+  "apkUrl": "https://raw.githubusercontent.com/catavaggio/UbonVisa/main/downloads/yt-subcopy/YTSubCopy-3.2.apk",
+  "sha256": "5feac331d4bf26c7f5beee852367dbd75e3c3bded734b99b07e02eea5e54ad71",
+  "notes": "YT SubCopy 3.2: исправления плавающей кнопки EN CC и автоматическое открытие ChatGPT после успешного копирования английских субтитров."
 }
